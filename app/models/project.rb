@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
 
   has_many :tasks
 
-  belongs_to :user, :foreign_key => :user_id, :classname => 'User'
+  belongs_to :user
 
   def as_json(options={})
     included = options[:include] || {}

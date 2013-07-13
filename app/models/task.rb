@@ -1,7 +1,7 @@
 class Task < ActiveRecord::Base
   attr_accessible :finished, :name, :order, :project_id, :project
 
-  belongs_to :project, :foreign_key => :project_id, :classname => 'Project'
+  belongs_to :project
 
   def as_json(options={})
     included = options[:include] || {}
