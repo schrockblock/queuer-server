@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     hash
   end
 
-  def set_api_key
+  def self.set_api_key
     self.api_key = SecureRandom.urlsafe_base64
   end
 end
