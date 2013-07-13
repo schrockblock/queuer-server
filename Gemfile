@@ -2,6 +2,32 @@ source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
 gem 'rack', '~> 1.4.5'
+gem 'bootstrap-sass', '2.0.0'
+gem 'jquery-rails'
+gem 'cancan'
+gem 'newrelic_rpm'
+
+gem 'json'  
+
+gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-instafail'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'awesome_print'
+
+gem 'jquery-rails'
+gem 'inherited_resources'
+
+gem 'simple_admin', :git => 'git://github.com/jeffrafter/simple_admin.git'
+gem 'formtastic'
+gem 'ransack'
+gem 'kaminari'
+
+# To use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
+
+gem "devise"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,7 +59,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'

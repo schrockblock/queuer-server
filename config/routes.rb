@@ -1,10 +1,19 @@
 RailsApp::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+  mount SimpleAdmin::Engine => '/admin', :as => :simple_admin
+
+  namespace :api, :defaults => { :format => 'json' } do
+    namespace :v1 do
+      resource :session, :only => [:create]
+      resource :user do
+	resource :project do
+	  resource :task
+	end
+      end
+    end
+  end
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
-  # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -51,8 +60,4 @@ RailsApp::Application.routes.draw do
   # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
 end
