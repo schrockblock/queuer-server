@@ -4,9 +4,9 @@ RailsApp::Application.routes.draw do
   namespace :api, :defaults => { :format => 'json' } do
     namespace :v1 do
       resource :session, :only => [:create]
-      resource :user do
-	resource :project do
-	  resource :task
+      resources :users do
+	resources :projects do
+	  resources :tasks
 	end
       end
     end
