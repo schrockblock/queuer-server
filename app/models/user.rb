@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :username, :presence => true, :uniqueness => true
 
-  before_create set_api_key
+  before_create :set_api_key
 
   attr_accessible :admin, :api_key, :password, :password_digest, :username
 
@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     hash
   end
 
-  def self.set_api_key
+  def set_api_key
     self.api_key = SecureRandom.urlsafe_base64
   end
 end
