@@ -50,6 +50,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.1)
+    columnize (0.3.6)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     devise (2.2.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -64,6 +71,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
+    fastercsv (1.5.5)
     ffi (1.9.0)
     formatador (0.2.4)
     formtastic (2.2.1)
@@ -208,8 +216,10 @@ DEPENDENCIES
   bootstrap-sass (= 2.0.0)
   cancan
   coffee-rails (~> 3.2.1)
+  debugger
   devise
   factory_girl_rails
+  fastercsv
   formtastic
   guard
   guard-rspec
