@@ -9,8 +9,8 @@ class Ability
       # Users
       can :create, User
       can :read, User 
-      can :update, User do |user|
-        user.id == @user.try(:id) || user.admin
+      can :update, User do |user1|
+        user1.id == @user.try(:id) || @user.admin
       end
 
       can :index, User
