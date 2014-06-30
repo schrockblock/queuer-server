@@ -250,7 +250,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simple_admin!
   sqlite3
-  thor (= 0.14.6)
+  thor
   turbo-sprockets-rails3
   uglifier (>= 1.0.3)
   unicorn
