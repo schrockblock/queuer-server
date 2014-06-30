@@ -1,22 +1,21 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
-gem 'rack', '~> 1.4.5'
-gem 'bootstrap-sass', '2.0.0'
+gem 'rack'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'cancan'
 gem 'newrelic_rpm'
 
 gem 'json'  
 
-gem 'rspec-rails', '~> 2.0'
+gem 'rspec-rails'
 gem 'rspec-instafail'
 gem 'factory_girl_rails'
 gem 'guard'
 gem 'guard-rspec'
 gem 'awesome_print'
 
-gem 'jquery-rails'
 gem 'inherited_resources'
 
 gem 'simple_admin', :git => 'git://github.com/jeffrafter/simple_admin.git'
@@ -27,7 +26,7 @@ gem 'ransack'
 gem 'kaminari'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby'
 
 gem "devise"
 
