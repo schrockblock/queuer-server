@@ -9,9 +9,6 @@ gem 'newrelic_rpm'
 
 gem 'json'  
 
-gem 'rspec-rails'
-gem 'rspec-instafail'
-gem 'factory_girl_rails'
 gem 'guard'
 gem 'guard-rspec'
 gem 'awesome_print'
@@ -42,6 +39,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'turbo-sprockets-rails3'
+end
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec-instafail'
+  gem 'factory_girl_rails'
 end
 
 gem 'jquery-rails'
