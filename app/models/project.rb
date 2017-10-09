@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-  attr_accessible :color, :name, :user_id, :user
 
   has_many :tasks
 

@@ -1,5 +1,4 @@
 class Task < ActiveRecord::Base
-  attr_accessible :finished, :name, :order, :project_id, :project
 
   belongs_to :project
 

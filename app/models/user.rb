@@ -8,8 +8,6 @@ class User < ActiveRecord::Base
 
   before_create :set_api_key
 
-  attr_accessible :admin, :api_key, :password, :password_digest, :username
-
   def as_json(options={})
     included = options[:include] || {}
     except = [:password, :password_digest, :api_key, :admin].delete_if { |attr| included.include?(attr) }
