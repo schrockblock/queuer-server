@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://uabroad.com",
+  "type": "object",
+  "properties": {
+    "id": {
+      "id": "http://uabroad.com/like/id",
+      "type": "integer"
+    },
+    "created_at": {
+      "id": "http://uabroad.com/like/created_at",
+      "type": "string"
+    },
+    "updated_at": {
+      "id": "http://uabroad.com/like/updated_at",
+      "type": "string"
+    },
+    "user_id": {
+      "id": "http://uabroad.com/like/user_id",
+      "type": "integer"
+    },
+    "subject": {
+      "id": "http://uabroad.com/like/subject",
+      "type": "object",
+      "properties": {
+        "type": {
+          "id": "http://uabroad.com/like/subject/type",
+          "type": "string"
+        },
+        "id": {
+          "id": "http://uabroad.com/like/subject/id",
+          "type": "integer"
+        }
+      }
+    },
+    "required": [
+      "id",
+      "created_at",
+      "updated_at",
+      "user_id",
+      "subject"
+    ]
+  }
+}

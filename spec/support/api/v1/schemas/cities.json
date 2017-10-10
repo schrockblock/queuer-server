@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://uabroad.com",
+  "type": "object",
+  "properties": {
+    "cities": {
+      "id": "http://uabroad.com/city",
+      "type": "array",
+      "items": {
+        "id": {
+          "id": "http://uabroad.com/city/id",
+          "type": "integer"
+        },
+        "created_at": {
+          "id": "http://uabroad.com/city/created_at",
+          "type": "string"
+        },
+        "updated_at": {
+          "id": "http://uabroad.com/city/updated_at",
+          "type": "string"
+        },
+        "name": {
+          "id": "http://uabroad.com/city/name",
+          "type": "string"
+        },
+        "image": {
+          "id": "http://uabroad.com/city/images",
+          "type": ["null", "object"],
+          "properties": {
+            "id": {
+              "id": "http://uabroad.com/city/images/0/id",
+              "type": "integer"
+            },
+            "created_at": {
+              "id": "http://uabroad.com/city/images/0/created_at",
+              "type": "string"
+            },
+            "updated_at": {
+              "id": "http://uabroad.com/city/images/0/updated_at",
+              "type": "string"
+            },
+            "url": {
+              "id": "http://uabroad.com/city/images/0/url",
+              "type": ["string","null"]
+            },
+            "external_id": {
+              "id": "http://uabroad.com/city/images/0/external_id",
+              "type": ["string","null"]
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "name"
+      ]
+    }
+  },
+  "required": [
+    "cities"
+  ]
+}

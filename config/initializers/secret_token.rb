@@ -8,7 +8,7 @@ require File.join(Rails.root,'lib','openshift_secret_generator.rb')
 # no regular words or you'll be exposed to dictionary attacks.
 
 # Set token based on intialize_secret function (defined in initializers/secret_generator.rb)
-RailsApp::Application.config.secret_token = initialize_secret(
+RailsApp::Application.config.secret_key_base = initialize_secret(
   :token,
-  '335a4e365ef2daeea969640d74e18f0e3cd9fae1abd8f4125691a880774ea6d456a29c0831aa6921bf86a710fe555e916f0673f5657619ec9df22e0409bec345'
+  '7690ad61aa2d4858f71d21f0fd93b0ecbb9c3eb69368f4a467270175a728d8e24c9ee4a7828a7a4edf7c03d64e1797e551ace382d275b6ee8cefbcfb74965ffb'
 )

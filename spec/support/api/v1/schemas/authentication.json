@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://uabroad.com",
+  "type": "object",
+  "properties": {
+    "authentication": {
+      "id": "http://uabroad.com/authentication",
+      "type": "object",
+      "properties": {
+        "token": {
+          "id": "http://uabroad.com/authentication/token",
+          "type": "string"
+        },
+        "expires_at": {
+          "id": "http://uabroad.com/authentication/expires_at",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token",
+        "expires_at"
+      ]
+    }
+  },
+  "required": [
+    "authentication"
+  ]
+}

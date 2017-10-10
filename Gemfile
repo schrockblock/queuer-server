@@ -34,9 +34,24 @@ end
 
 group :test do
   gem 'sqlite3'
-  # gem 'rspec-rails'
-  # gem 'rspec-instafail'
-  # gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  
+  gem 'awesome_print'
+  gem 'bullet'
+  gem 'byebug'
+  gem 'capybara'
+  gem 'capybara-webkit', '>= 1.2.0'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'factory_girl_rails'
+  gem 'formulaic'
+  gem 'json-schema'
+  gem 'json_spec'
+  gem 'launchy'
+  gem 'shoulda-matchers', require: false
+  gem 'simplecov', require: false
+  gem 'timecop'
+  gem 'webmock'
 end
 
 # To use Jbuilder templates for JSON

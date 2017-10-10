@@ -1,0 +1,210 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://uabroad.com",
+  "type": "object",
+  "properties": {
+    "recommendation": {
+      "id": "http://uabroad.com/recommendation",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "http://uabroad.com/recommendation/id",
+          "type": "integer"
+        },
+        "likes_count": {
+          "id": "http://uabroad.com/recommendation/id",
+          "type": ["integer","null"]
+        },
+        "created_at": {
+          "id": "http://uabroad.com/recommendation/created_at",
+          "type": "string"
+        },
+        "updated_at": {
+          "id": "http://uabroad.com/recommendation/updated_at",
+          "type": "string"
+        },
+        "recommender_id": {
+          "id": "http://uabroad.com/recommendation/recommender_id",
+          "type": "integer"
+        },
+        "title": {
+          "id": "http://uabroad.com/recommendation/title",
+          "type": "string"
+        },
+        "desc": {
+          "id": "http://uabroad.com/recommendation/description",
+          "type": ["string","null"]
+        },
+        "is_liked_by_current_user": {
+          "id": "http://uabroad.com/recommendation/description",
+          "type": ["boolean","null"]
+        },
+        "details": {
+          "id": "http://uabroad.com/recommendation/details",
+          "type": ["string","null"]
+        },
+        "address": {
+          "id": "http://uabroad.com/recommendation/address",
+          "type": ["string","null"]
+        },
+        "category_list": {
+          "id": "http://uabroad.com/recommendation/categories",
+          "type": "array",
+          "items": {
+            "id": "http://uabroad.com/recommendation/categories/0",
+            "type": "string"
+          }
+        },
+        "images": {
+          "id": "http://uabroad.com/recommendation/images",
+          "type": "array",
+          "items": {
+            "id": "http://uabroad.com/recommendation/images/0",
+            "type": "object",
+            "properties": {
+              "id": {
+                "id": "http://uabroad.com/recommendation/images/0/id",
+                "type": "integer"
+              },
+              "created_at": {
+                "id": "http://uabroad.com/recommendation/images/0/created_at",
+                "type": "string"
+              },
+              "updated_at": {
+                "id": "http://uabroad.com/recommendation/images/0/updated_at",
+                "type": "string"
+              },
+              "url": {
+                "id": "http://uabroad.com/recommendation/images/0/url",
+                "type": ["string","null"]
+              },
+              "external_id": {
+                "id": "http://uabroad.com/recommendation/images/0/external_id",
+                "type": ["string","null"]
+              }
+            }
+          }
+        },
+        "comments": {
+          "id": "http://uabroad.com/recommendation/comments",
+          "type": "array",
+          "items": {
+            "id": "http://uabroad.com/recommendation/comments/0",
+            "type": "object",
+            "properties": {
+              "id": {
+                "id": "http://uabroad.com/comment/id",
+                "type": "integer"
+              },
+              "created_at": {
+                "id": "http://uabroad.com/comment/created_at",
+                "type": "string"
+              },
+              "updated_at": {
+                "id": "http://uabroad.com/comment/updated_at",
+                "type": "string"
+              },
+              "body": {
+                "id": "http://uabroad.com/comment/body",
+                "type": "string"
+              },
+              "user_id": {
+                "id": "http://uabroad.com/comment/user_id",
+                "type": "integer"
+              },
+              "subject_id": {
+                "id": "http://uabroad.com/comment/user_id",
+                "type": "integer"
+              },
+              "subject_type": {
+                "id": "http://uabroad.com/comment/user_id",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "commenters": {
+          "id": "http://uabroad.com/recommendation/commenters",
+          "type": "array",
+          "items": {
+            "id": "http://uabroad.com/recommendation/commenters/0",
+            "properties": {
+              "id": {
+                "id": "http://uabroad.com/user/id",
+                "type": "integer"
+              },
+              "created_at": {
+                "id": "http://uabroad.com/user/created_at",
+                "type": "string"
+              },
+              "updated_at": {
+                "id": "http://uabroad.com/user/updated_at",
+                "type": "string"
+              },
+              "email": {
+                "id": "http://uabroad.com/user/email",
+                "type": ["null", "string"]
+              },
+              "school": {
+                "id": "http://uabroad.com/mentioned_users/0/school",
+                "type": ["null", "string"]
+              },
+              "first_name": {
+                "id": "http://uabroad.com/user/first_name",
+                "type": ["null", "string"]
+              },
+              "last_name": {
+                "id": "http://uabroad.com/user/last_name",
+                "type": ["null", "string"]
+              },
+              "program": {
+                "id": "http://uabroad.com/user/program",
+                "type": ["null", "string"]
+              },
+              "city_id": {
+                "id": "http://uabroad.com/user/city_id",
+                "type": "integer"
+              },
+              "image": {
+                "id": "http://uabroad.com/user/images",
+                "type": ["null", "object"],
+                "properties": {
+                  "id": {
+                    "id": "http://uabroad.com/user/images/0/id",
+                    "type": "integer"
+                  },
+                  "created_at": {
+                    "id": "http://uabroad.com/user/images/0/created_at",
+                    "type": "string"
+                  },
+                  "updated_at": {
+                    "id": "http://uabroad.com/user/images/0/updated_at",
+                    "type": "string"
+                  },
+                  "url": {
+                    "id": "http://uabroad.com/user/images/0/url",
+                    "type": ["string","null"]
+                  },
+                  "external_id": {
+                    "id": "http://uabroad.com/user/images/0/external_id",
+                    "type": ["string","null"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "title",
+        "recommender_id"
+      ]
+    }
+  },
+  "required": [
+    "recommendation"
+  ]
+}

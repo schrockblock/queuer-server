@@ -1,0 +1,444 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://trill.me",
+  "type": "object",
+  "properties": {
+    "following_users": {
+      "id": "http://trill.me/following_users",
+      "type": "array",
+      "items": {
+        "id": "http://trill.me/following_users/0",
+        "type": "object",
+        "properties": {
+          "id": {
+            "id": "http://trill.me/following_users/0/id",
+            "type": "string"
+          },
+          "created_at": {
+            "id": "http://trill.me/following_users/0/created_at",
+            "type": "string"
+          },
+          "updated_at": {
+            "id": "http://trill.me/following_users/0/updated_at",
+            "type": "string"
+          },
+          "email": {
+            "id": "http://trill.me/following_users/0/email",
+            "type": ["null", "string"]
+          },
+          "handle": {
+            "id": "http://trill.me/mentioned_users/0/handle",
+            "type": ["null", "string"]
+          },
+          "given_name": {
+            "id": "http://trill.me/following_users/0/given_name",
+            "type": ["null", "string"]
+          },
+          "family_name": {
+            "id": "http://trill.me/following_users/0/family_name",
+            "type": ["null", "string"]
+          },
+          "picture_url": {
+            "id": "http://trill.me/following_users/0/picture_url",
+            "type": ["null", "string"]
+          },
+          "gender": {
+            "id": "http://trill.me/following_users/0/gender",
+            "type": ["null", "string"]
+          },
+          "bio": {
+            "id": "http://trill.me/following_users/0/bio",
+            "type": ["null", "string"]
+          },
+          "utc_offset": {
+            "id": "http://trill.me/following_users/0/utc_offset",
+            "type": ["null", "integer"]
+          },
+          "recommendations_count": {
+            "id": "http://trill.me/following_users/0/recommendations_count",
+            "type": "integer"
+          },
+          "follower_count": {
+            "id": "http://trill.me/following_users/0/follower_count",
+            "type": "integer"
+          },
+          "following_count": {
+            "id": "http://trill.me/following_users/0/following_count",
+            "type": "integer"
+          },
+          "comments_count": {
+            "id": "http://trill.me/following_users/0/comments_count",
+            "type": "integer"
+          },
+          "liked_recommendations_count": {
+            "id": "http://trill.me/following_users/0/liked_recommendations_count",
+            "type": "integer"
+          },
+          "liked_events_count": {
+            "id": "http://trill.me/following_users/0/liked_events_count",
+            "type": "integer"
+          },
+          "mentions_count": {
+            "id": "http://trill.me/following_users/0/mentions_count",
+            "type": "integer"
+          },
+          "created_events_count": {
+            "id": "http://trill.me/following_users/0/created_events_count",
+            "type": "integer"
+          },
+          "recommendation_ids": {
+            "id": "http://trill.me/following_users/0/recommendation_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/following_users/0/recommendation_ids/0",
+              "type": "string"
+            }
+          },
+          "recommended_event_ids": {
+            "id": "http://trill.me/following_users/0/recommended_event_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/following_users/0/recommended_event_ids/0",
+              "type": "string"
+            }
+          },
+          "user_follower_ids": {
+            "id": "http://trill.me/following_users/0/user_follower_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/following_users/0/user_follower_ids/0",
+              "type": "string"
+            }
+          },
+          "following_user_ids": {
+            "id": "http://trill.me/following_users/0/following_user_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/following_users/0/following_user_ids/0",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "recommendations_count",
+          "follower_count",
+          "following_count",
+          "liked_events_count",
+          "liked_recommendations_count",
+          "mentions_count",
+          "created_events_count",
+          "recommendation_ids",
+          "recommended_event_ids",
+          "user_follower_ids",
+          "following_user_ids"
+        ]
+      }
+    },
+    "user_followers": {
+      "id": "http://trill.me/user_followers",
+      "type": "array",
+      "items": {
+        "id": "http://trill.me/user_followers/0",
+        "type": "object",
+        "properties": {
+          "id": {
+            "id": "http://trill.me/user_followers/0/id",
+            "type": "string"
+          },
+          "created_at": {
+            "id": "http://trill.me/user_followers/0/created_at",
+            "type": "string"
+          },
+          "updated_at": {
+            "id": "http://trill.me/user_followers/0/updated_at",
+            "type": "string"
+          },
+          "email": {
+            "id": "http://trill.me/user_followers/0/email",
+            "type": ["null", "string"]
+          },
+          "handle": {
+            "id": "http://trill.me/mentioned_users/0/handle",
+            "type": ["null", "string"]
+          },
+          "given_name": {
+            "id": "http://trill.me/user_followers/0/given_name",
+            "type": ["null", "string"]
+          },
+          "family_name": {
+            "id": "http://trill.me/user_followers/0/family_name",
+            "type": ["null", "string"]
+          },
+          "city": {
+            "id": "http://trill.me/user_followers/0/city",
+            "type": ["null", "string"]
+          },
+          "picture_url": {
+            "id": "http://trill.me/user_followers/0/picture_url",
+            "type": ["null", "string"]
+          },
+          "gender": {
+            "id": "http://trill.me/user_followers/0/gender",
+            "type": ["null", "string"]
+          },
+          "bio": {
+            "id": "http://trill.me/user_followers/0/bio",
+            "type": ["null", "string"]
+          },
+          "utc_offset": {
+            "id": "http://trill.me/user_followers/0/utc_offset",
+            "type": ["null", "integer"]
+          },
+          "recommendations_count": {
+            "id": "http://trill.me/user_followers/0/recommendations_count",
+            "type": "integer"
+          },
+          "follower_count": {
+            "id": "http://trill.me/user_followers/0/follower_count",
+            "type": "integer"
+          },
+          "following_count": {
+            "id": "http://trill.me/user_followers/0/following_count",
+            "type": "integer"
+          },
+          "comments_count": {
+            "id": "http://trill.me/user_followers/0/comments_count",
+            "type": "integer"
+          },
+          "liked_recommendations_count": {
+            "id": "http://trill.me/user_followers/0/liked_recommendations_count",
+            "type": "integer"
+          },
+          "liked_events_count": {
+            "id": "http://trill.me/user_followers/0/liked_events_count",
+            "type": "integer"
+          },
+          "mentions_count": {
+            "id": "http://trill.me/user_followers/0/mentions_count",
+            "type": "integer"
+          },
+          "created_events_count": {
+            "id": "http://trill.me/user_followers/0/created_events_count",
+            "type": "integer"
+          },
+          "recommendation_ids": {
+            "id": "http://trill.me/user_followers/0/recommendation_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/user_followers/0/recommendation_ids/0",
+              "type": "string"
+            }
+          },
+          "recommended_event_ids": {
+            "id": "http://trill.me/user_followers/0/recommended_event_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/user_followers/0/recommended_event_ids/0",
+              "type": "string"
+            }
+          },
+          "user_follower_ids": {
+            "id": "http://trill.me/user_followers/0/user_follower_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/user_followers/0/user_follower_ids/0",
+              "type": "string"
+            }
+          },
+          "following_user_ids": {
+            "id": "http://trill.me/user_followers/0/following_user_ids",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "id": "http://trill.me/user_followers/0/following_user_ids/0",
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "created_at",
+          "updated_at",
+          "recommendations_count",
+          "follower_count",
+          "following_count",
+          "liked_events_count",
+          "liked_recommendations_count",
+          "mentions_count",
+          "created_events_count",
+          "recommendation_ids",
+          "recommended_event_ids",
+          "user_follower_ids",
+          "following_user_ids"
+        ]
+      }
+    },
+    "user": {
+      "id": "http://trill.me/user",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "http://trill.me/user/id",
+          "type": "string"
+        },
+        "created_at": {
+          "id": "http://trill.me/user/created_at",
+          "type": "string"
+        },
+        "updated_at": {
+          "id": "http://trill.me/user/updated_at",
+          "type": "string"
+        },
+        "email": {
+          "id": "http://trill.me/user/email",
+          "type": ["null", "string"]
+        },
+        "handle": {
+          "id": "http://trill.me/mentioned_users/0/handle",
+          "type": ["null", "string"]
+        },
+        "given_name": {
+          "id": "http://trill.me/user/given_name",
+          "type": ["null", "string"]
+        },
+        "family_name": {
+          "id": "http://trill.me/user/family_name",
+          "type": ["null", "string"]
+        },
+        "city": {
+          "id": "http://trill.me/user/city",
+          "type": ["null", "string"]
+        },
+        "picture_url": {
+          "id": "http://trill.me/user/picture_url",
+          "type": ["null", "string"]
+        },
+        "gender": {
+          "id": "http://trill.me/user/gender",
+          "type": ["null", "string"]
+        },
+        "bio": {
+          "id": "http://trill.me/user/bio",
+          "type": ["null", "string"]
+        },
+        "website": {
+          "id": "http://trill.me/user/website",
+          "type": ["null", "string"]
+        },
+        "utc_offset": {
+          "id": "http://trill.me/user/utc_offset",
+          "type": ["null", "integer"]
+        },
+        "recommendations_count": {
+          "id": "http://trill.me/user/recommendations_count",
+          "type": "integer"
+        },
+        "follower_count": {
+          "id": "http://trill.me/user/follower_count",
+          "type": "integer"
+        },
+        "following_count": {
+          "id": "http://trill.me/user/following_count",
+          "type": "integer"
+        },
+        "comments_count": {
+          "id": "http://trill.me/user/comments_count",
+          "type": "integer"
+        },
+        "liked_recommendations_count": {
+          "id": "http://trill.me/user/liked_recommendations_count",
+          "type": "integer"
+        },
+        "liked_events_count": {
+          "id": "http://trill.me/user/liked_events_count",
+          "type": "integer"
+        },
+        "mentions_count": {
+          "id": "http://trill.me/user/mentions_count",
+          "type": "integer"
+        },
+        "created_events_count": {
+          "id": "http://trill.me/user/created_events_count",
+          "type": "integer"
+        },
+        "cred_status": {
+          "id": "http://trill.me/user/cred_status",
+          "type": "string"
+        },
+        "total_points_credited": {
+          "id": "http://trill.me/user/total_points_credited",
+          "type": "integer"
+        },
+        "primary_region_id": {
+          "id": "http://trill.me/user/primary_region_id",
+          "type": ["string", "null"]
+        },
+        "recommendation_requests_count": {
+          "id": "http://trill.me/user/recommendation_requests_count",
+          "type": "integer"
+        },
+        "re_recommendations_count": {
+          "id": "http://trill.me/user/re_recommendations_count",
+          "type": "integer"
+        },
+        "user_follower_ids": {
+          "id": "http://trill.me/user/user_follower_ids",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "id": "http://trill.me/user/user_follower_ids/0",
+            "type": "string"
+          }
+        },
+        "following_user_ids": {
+          "id": "http://trill.me/user/following_user_ids",
+          "type": "array",
+          "minItems": 0,
+          "items": {
+            "id": "http://trill.me/user/following_user_ids/0",
+            "type": "string"
+          }
+        },
+        "authentication_token": {
+          "id": "http://trill.me/user/authentication_token",
+          "type": "string"
+        },
+        "authentication_token_expires_at": {
+          "id": "http://trill.me/authentication/user/authentication_token_expires_at",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "created_at",
+        "updated_at",
+        "recommendations_count",
+        "follower_count",
+        "following_count",
+        "comments_count",
+        "liked_events_count",
+        "liked_recommendations_count",
+        "mentions_count",
+        "created_events_count",
+        "cred_status",
+        "total_points_credited",
+        "primary_region_id",
+        "user_follower_ids",
+        "following_user_ids"
+      ]
+    }
+  },
+  "required": [
+    "user"
+  ]
+}
