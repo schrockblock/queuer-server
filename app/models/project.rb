@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
     included = options[:include] || {}
     except = [:user, :user_id].delete_if { |attr| included.include?(attr) }
 
-    hash = super(:except => except, :include => {:tasks => {:except => :project}})
+    hash = super(except: except, include: {tasks: {except: :project}})
     hash['errors'] = errors.as_json if errors.present?
 
     hash
