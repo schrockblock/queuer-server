@@ -13,12 +13,24 @@ describe 'Day requests' do
   end
 
   describe 'GET /api/v1/sprints/:id/days' do
-    it 'gets sprint for the user' do
+    it 'gets days for the sprint' do
       user = create :user
       sprint = create :sprint, user: user
       create_list :day, 3, sprint: sprint
 
       get(api_v1_sprint_days_url(sprint), {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+    end
+  end
+
+  describe 'GET /api/v1/sprints/:id/days/:id' do
+    it 'gets day for the sprint' do
+      user = create :user
+      sprint = create :sprint, user: user
+      create_list :day, 3, sprint: sprint
+
+      get(api_v1_sprint_day_url(sprint, Day.last), {}, authorization_headers(user))
 
       expect(response).to have_http_status :ok
     end

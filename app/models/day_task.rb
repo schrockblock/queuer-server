@@ -4,6 +4,8 @@ class DayTask < ActiveRecord::Base
   belongs_to :next, class_name: 'DayTask'
   belongs_to :previous, class_name: 'DayTask'
 
+  validates :task_id, uniqueness: { scope: :day_id }
+
   def as_json(options={})
     included = options[:include] || {}
     except = [:day, :day_id].delete_if { |attr| included.include?(attr) }

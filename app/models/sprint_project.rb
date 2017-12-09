@@ -2,6 +2,8 @@ class SprintProject < ActiveRecord::Base
   belongs_to :sprint
   belongs_to :project
 
+  validates :project_id, uniqueness: { scope: :sprint_id }
+
   def as_json(options={})
     included = options[:include] || {}
     except = [:sprint, :sprint_id].delete_if { |attr| included.include?(attr) }
