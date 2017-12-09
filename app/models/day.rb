@@ -7,7 +7,7 @@ class Day < ActiveRecord::Base
     included = options[:include] || {}
     except = [:sprint, :sprint_id].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: {tasks: {include: {project: {except: :tasks}}}})
+    hash = super(except: except, include: {day_tasks: {include: {task: {include: {project: {except: :tasks}}}}}})
     hash['errors'] = errors.as_json if errors.present?
 
     hash
