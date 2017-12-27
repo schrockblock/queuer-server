@@ -1,7 +1,9 @@
 class Api::V1::UsersController < Api::V1::ApiController
   inherit_resources
-  load_and_authorize_resource
+  
   skip_load_and_authorize_resource :only => [:new, :create]
+  load_and_authorize_resource
+  
   before_action :permit_params
 
   def create

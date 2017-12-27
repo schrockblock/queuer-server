@@ -1,5 +1,5 @@
 class Api::V1::ApiController < ApplicationController
- respond_to :json
+  respond_to :json
 
   before_filter :set_default_response_format
   before_filter :set_default_response_headers
@@ -35,6 +35,10 @@ class Api::V1::ApiController < ApplicationController
 
   def set_default_response_headers
     response.headers['Cache-Control'] = 'no-cache, no-store'
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: { errors: exception.message }, status: :unauthorized
   end
 
   def load_index_from_nested_resource(parent, association)

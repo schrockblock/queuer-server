@@ -22,6 +22,16 @@ describe 'Day requests' do
 
       expect(response).to have_http_status :ok
     end
+
+    it 'is unauthorized when other user' do
+      user = create :user
+      sprint = create :sprint, user: user
+      other_user = create :user, username: 'other'
+
+      get(api_v1_sprint_days_url(sprint), {}, authorization_headers(other_user))
+
+      expect(response).to have_http_status :unauthorized
+    end
   end
 
   describe 'GET /api/v1/sprints/:id/days/:id' do

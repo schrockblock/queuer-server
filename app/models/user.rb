@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
 
+  has_many :sprints, dependent: :destroy
   has_many :projects, :dependent => :destroy
-  has_many :tasks, :through => :projects
 
   validates :username, :presence => true, :uniqueness => true
 

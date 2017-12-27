@@ -44,8 +44,17 @@ describe 'Task requests' do
 
       get(api_v1_project_tasks_url(project), {}, accept_headers)
 
-      expect(response).to have_http_status :forbidden
+      expect(response).to have_http_status :unauthorized
     end
 
+    it 'is unauthorized when no user' do
+      user = create :user
+      other_user = create :user, username: 'other'
+      project = create :project, user_id: user.id
+
+      get(api_v1_project_tasks_url(project), {}, authorization_headers(other_user))
+
+      expect(response).to have_http_status :unauthorized
+    end
   end
 end

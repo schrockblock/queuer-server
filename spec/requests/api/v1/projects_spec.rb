@@ -42,7 +42,7 @@ describe 'Project requests' do
 
       get(api_v1_projects_url, {}, accept_headers)
 
-      expect(response).to have_http_status :forbidden
+      expect(response).to have_http_status :unauthorized
     end
   end
 end

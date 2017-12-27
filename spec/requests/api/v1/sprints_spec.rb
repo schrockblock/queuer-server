@@ -10,7 +10,7 @@ describe 'Sprint requests' do
   end
 
   describe 'GET /api/v1/sprints' do
-    it 'gets sprint for the user' do
+    it 'gets sprints for the user' do
       user = create :user
       other_user = create :user, username: 'other'
       project = create :project, user: user
@@ -33,7 +33,47 @@ describe 'Sprint requests' do
 
       get(api_v1_sprints_url, {}, accept_headers)
 
-      expect(response).to have_http_status :forbidden
+      expect(response).to have_http_status :unauthorized
+    end
+  end
+
+  describe 'GET /api/v1/sprints/:id' do
+    it 'gets the sprint for the user' do
+      user = create :user
+      other_user = create :user, username: 'other'
+      project = create :project, user: user
+      task = create :task, project: project
+      sprint = create :sprint, user: user
+      create :sprint, user: other_user
+      day = create :day, sprint: sprint
+      create :day_task, day: day, task: task
+      create :sprint_project, sprint: sprint, project: project
+
+      get(api_v1_sprint_url(sprint), {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+      expect(json['days'].count).to eq 1
+      # expect(json[0]['days'][0]['points']).to eq 1
+    end
+
+    it 'is unauthorized when no user' do
+      user = create :user
+      sprint = create :sprint, user: user
+      other_user = create :user, username: 'other'
+
+      get(api_v1_sprints_url(sprint), {}, accept_headers)
+
+      expect(response).to have_http_status :unauthorized
+    end
+
+    it 'is unauthorized when other user' do
+      user = create :user
+      sprint = create :sprint, user: user
+      other_user = create :user, username: 'other'
+
+      get(api_v1_sprint_url(sprint), {}, authorization_headers(other_user))
+
+      expect(response).to have_http_status :unauthorized
     end
   end
 end
