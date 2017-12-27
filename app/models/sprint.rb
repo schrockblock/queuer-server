@@ -10,8 +10,18 @@ class Sprint < ActiveRecord::Base
 
     hash = super(except: except, include: [{ projects: {except: :tasks} }, 
                                            { days: {except: [:tasks, :day_tasks]} }])
+    hash['points'] = points
+    hash['finished_points'] = finished_points
     hash['errors'] = errors.as_json if errors.present?
 
     hash
+  end
+
+  def points
+    days.map(&:points).reduce(0, :+)
+  end
+
+  def finished_points
+    days.map(&:finished_points).reduce(0, :+)
   end
 end

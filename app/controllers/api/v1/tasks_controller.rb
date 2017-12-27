@@ -6,6 +6,6 @@ class Api::V1::TasksController < Api::V1::ApiController
   load_and_authorize_resource :project
 
   def task_params
-    params.require(:task).permit(:name, :order, :finished, :project_id)
+    params.require(:task).permit(:name, :points, :finished, :project_id)
   end
 end
