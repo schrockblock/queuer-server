@@ -16,6 +16,8 @@ gem 'sass-rails'
 
 gem 'rails_12factor', group: :production
 
+gem 'api-pagination'
+
 gem 'ransack'
 gem 'kaminari'
 

@@ -27,6 +27,48 @@ describe 'Sprint requests' do
       expect(json.count).to eq 1
     end
 
+    it 'orders by start_date' do
+      user = create :user
+      other_user = create :user, username: 'other'
+      
+      project = create :project, user: user
+      task = create :task, project: project
+      
+      sprint = create :sprint, user: user
+      latest_sprint = create :sprint, user: user, start_date: 2.days.from_now
+      first_sprint = create :sprint, user: user, start_date: 1.day.ago
+      create :sprint, user: other_user
+      
+      day = create :day, sprint: sprint
+      create :day_task, day: day, task: task
+      create :sprint_project, sprint: sprint, project: project
+
+      get(api_v1_sprints_url, {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+      expect(json.count).to eq 3
+      expect(json.first['id']).to eq latest_sprint.id
+      expect(json.third['id']).to eq first_sprint.id
+    end
+
+    it 'paginates sprints' do
+      user = create :user
+      other_user = create :user, username: 'other'
+      project = create :project, user: user
+      task = create :task, project: project
+      sprint = create :sprint, user: user
+      sprints = create_list :sprint, 25, user: user
+      create :sprint, user: other_user
+      day = create :day, sprint: sprint
+      create :day_task, day: day, task: task
+      create :sprint_project, sprint: sprint, project: project
+
+      get(api_v1_sprints_url, {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+      expect(json.count).to eq 25
+    end
+
     it 'is unauthorized when no user' do
       user = create :user
       create :sprint, user: user
