@@ -17,10 +17,10 @@ class Project < ActiveRecord::Base
   end
 
   def points
-    tasks.map(&:points).reduce(0, :+)
+    self.tasks.map(&:points).reduce(0, :+)
   end
 
   def remaining_points
-    points - tasks.select(&:finished).map(&:points).reduce(0, :+)
+    points - self.tasks.select(&:finished).map(&:points).reduce(0, :+)
   end
 end

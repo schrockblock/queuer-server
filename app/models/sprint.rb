@@ -6,10 +6,21 @@ class Sprint < ActiveRecord::Base
 
   def as_json(options={})
     included = options[:include] || {}
-    except = [:user, :user_id].delete_if { |attr| included.include?(attr) }
+    excepted = options[:except] || {}
+    except = [:user, :user_id, :projects, :days].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: [{ projects: {except: :tasks} }, 
-                                           { days: {except: [:tasks, :day_tasks]} }])
+    hash = super(except: except)
+
+    unless excepted.include?(:projects)
+      projects_json = projects.as_json(except: :tasks)
+      hash['projects'] = projects_json
+    end
+
+    unless excepted.include? :days
+      days_json = days.as_json(except: [:tasks, :day_tasks])
+      hash['days'] = days_json
+    end
+    
     hash['points'] = points
     hash['finished_points'] = finished_points
     hash['errors'] = errors.as_json if errors.present?

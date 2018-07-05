@@ -57,7 +57,7 @@ describe 'Sprint requests' do
       project = create :project, user: user
       task = create :task, project: project
       sprint = create :sprint, user: user
-      sprints = create_list :sprint, 25, user: user
+      sprints = create_list :sprint, 9, user: user
       create :sprint, user: other_user
       day = create :day, sprint: sprint
       create :day_task, day: day, task: task
@@ -66,7 +66,7 @@ describe 'Sprint requests' do
       get(api_v1_sprints_url, {}, authorization_headers(user))
 
       expect(response).to have_http_status :ok
-      expect(json.count).to eq 25
+      expect(json.count).to eq 8
     end
 
     it 'is unauthorized when no user' do
@@ -95,7 +95,8 @@ describe 'Sprint requests' do
 
       expect(response).to have_http_status :ok
       expect(json['days'].count).to eq 1
-      # expect(json[0]['days'][0]['points']).to eq 1
+      expect(json['projects'].first['points']).to eq 1
+      expect(json['days'].first['points']).to eq 1
     end
 
     it 'is unauthorized when no user' do
