@@ -16,11 +16,11 @@ class Project < ActiveRecord::Base
     hash
   end
 
-  def points
-    self.tasks.map(&:points).reduce(0, :+)
+  def calculate_points
+    tasks.map(&:points).reduce(0, :+)
   end
 
-  def remaining_points
-    points - self.tasks.select(&:finished).map(&:points).reduce(0, :+)
+  def calculate_remaining_points
+    points - tasks.select(&:finished).map(&:points).reduce(0, :+)
   end
 end

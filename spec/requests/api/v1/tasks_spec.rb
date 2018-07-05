@@ -10,13 +10,17 @@ describe 'Task requests' do
         task: {
           name: 'Be awesome',
           finished: false,
+          points: 2,
           order: 1
         }
       }.to_json
 
       post(api_v1_project_tasks_url(project), new_task_attributes, authorization_headers(user))
 
+      project.reload
+
       expect(response).to have_http_status :created
+      expect(project.points).to eq 2
     end
   end
 

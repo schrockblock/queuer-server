@@ -9,12 +9,7 @@ class Sprint < ActiveRecord::Base
     excepted = options[:except] || {}
     except = [:user, :user_id, :projects, :days].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except)
-
-    unless excepted.include?(:projects)
-      projects_json = projects.as_json(except: :tasks)
-      hash['projects'] = projects_json
-    end
+    hash = super(except: except, include: { projects: {except: :tasks } })
 
     unless excepted.include? :days
       days_json = days.as_json(except: [:tasks, :day_tasks])
