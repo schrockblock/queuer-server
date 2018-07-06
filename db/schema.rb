@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705170151) do
+ActiveRecord::Schema.define(version: 20180706021316) do
 
   create_table "day_tasks", force: :cascade do |t|
     t.integer  "day_id"
@@ -25,8 +25,10 @@ ActiveRecord::Schema.define(version: 20180705170151) do
   create_table "days", force: :cascade do |t|
     t.datetime "date"
     t.integer  "sprint_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "points",          default: 0
+    t.integer  "finished_points", default: 0
   end
 
   create_table "projects", force: :cascade do |t|

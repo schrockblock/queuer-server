@@ -6,6 +6,8 @@ class DayTask < ActiveRecord::Base
 
   validates :task_id, uniqueness: { scope: :day_id }
 
+  after_create :update_day_points
+
   def as_json(options={})
     included = options[:include] || {}
     except = [:day, :day_id].delete_if { |attr| included.include?(attr) }
@@ -14,5 +16,9 @@ class DayTask < ActiveRecord::Base
     hash['errors'] = errors.as_json if errors.present?
 
     hash
+  end
+
+  def update_day_points
+    day.update_points
   end
 end
