@@ -7,6 +7,7 @@ class DayTask < ActiveRecord::Base
   validates :task_id, uniqueness: { scope: :day_id }
 
   after_create :update_day_points
+  after_destroy :update_day_points
 
   def as_json(options={})
     included = options[:include] || {}
