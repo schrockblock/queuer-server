@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180706021316) do
+ActiveRecord::Schema.define(version: 20190115212335) do
 
   create_table "day_tasks", force: :cascade do |t|
     t.integer  "day_id"
@@ -41,11 +41,20 @@ ActiveRecord::Schema.define(version: 20180706021316) do
     t.integer  "remaining_points",             default: 0
   end
 
+  create_table "sprint_project_tasks", force: :cascade do |t|
+    t.integer  "sprint_project_id"
+    t.integer  "task_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
   create_table "sprint_projects", force: :cascade do |t|
     t.integer  "sprint_id"
     t.integer  "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "points"
+    t.integer  "remaining_points"
   end
 
   create_table "sprints", force: :cascade do |t|
@@ -58,13 +67,15 @@ ActiveRecord::Schema.define(version: 20180706021316) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",             limit: 255
     t.integer  "order"
     t.boolean  "finished"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "project_id"
-    t.integer  "points",                 default: 1
+    t.integer  "points",                       default: 1
+    t.integer  "repeating_scheme",             default: 0
+    t.integer  "repeating_unit",               default: 0
   end
 
   create_table "users", force: :cascade do |t|

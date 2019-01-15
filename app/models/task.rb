@@ -2,10 +2,9 @@ class Task < ActiveRecord::Base
 
   belongs_to :project
   has_many :day_tasks
+  has_many :sprint_project_tasks
 
-  after_save :update_project_points
-  after_create :update_day_points
-  after_update :update_day_points
+  after_save :update_project_points, :update_day_points, :update_sprint_project_points
 
   def as_json(options={})
     included = options[:include] || {}
@@ -22,6 +21,12 @@ class Task < ActiveRecord::Base
     project.remaining_points = project.calculate_remaining_points
 
     project.save
+  end
+
+  def update_sprint_project_points
+    sprint_project_tasks.each do |sprint_project_task|
+      sprint_project_task.sprint_project.update_points
+    end
   end
 
   def update_day_points

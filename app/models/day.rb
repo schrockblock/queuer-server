@@ -1,6 +1,6 @@
 class Day < ActiveRecord::Base
   belongs_to :sprint
-  has_many :day_tasks
+  has_many :day_tasks, dependent: :destroy
   has_many :tasks, through: :day_tasks
 
   def as_json(options={})

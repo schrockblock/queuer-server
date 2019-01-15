@@ -95,7 +95,7 @@ describe 'Sprint requests' do
 
       expect(response).to have_http_status :ok
       expect(json['days'].count).to eq 1
-      expect(json['projects'].first['points']).to eq 1
+      expect(json['sprint_projects'].first['project']['points']).to eq 1
       expect(json['days'].first['points']).to eq 1
     end
 
