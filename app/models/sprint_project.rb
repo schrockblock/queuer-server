@@ -10,7 +10,8 @@ class SprintProject < ActiveRecord::Base
     included = options[:include] || {}
     except = [:sprint].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: {project: {except: :tasks}, tasks: {except: :project}})
+    hash = super(except: except, include: {project: {except: :tasks}, 
+                                           sprint_project_tasks: {include: {task: {except: :project}}}})
     hash['errors'] = errors.as_json if errors.present?
 
     hash

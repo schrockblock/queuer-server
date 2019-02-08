@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Sprint Project requests' do
   describe 'POST /api/v1/sprints/:id/sprint_projects' do
-    it 'creates a day and returns' do
+    it 'creates a sprint project and returns' do
       user = create :user
       project = create :project, user: user
       sprint = create :sprint, user: user
@@ -15,13 +15,26 @@ describe 'Sprint Project requests' do
   end
 
   describe 'GET /api/v1/sprints/:id/sprint_projects' do
-    it 'gets sprint for the user' do
+    it 'gets sprint projects for the sprint' do
       user = create :user
       project = create :project, user: user
       sprint = create :sprint, user: user
       create :sprint_project, sprint: sprint, project: project
 
       get(api_v1_sprint_sprint_projects_url(sprint), {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+    end
+  end
+
+  describe 'GET /api/v1/sprint_projects/:id' do
+    it 'gets sprint project for the user' do
+      user = create :user
+      project = create :project, user: user
+      sprint = create :sprint, user: user
+      sp = create :sprint_project, sprint: sprint, project: project
+
+      get(api_v1_sprint_project_url(sp), {}, authorization_headers(user))
 
       expect(response).to have_http_status :ok
     end

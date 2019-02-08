@@ -9,9 +9,9 @@ class Sprint < ActiveRecord::Base
     excepted = options[:except] || {}
     except = [:user, :user_id, :projects, :days].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: { sprint_projects: { include: [{ project: { except: :tasks }}, :tasks], 
-                                                               except: :sprint_project_tasks },
-                                            days: { except: [:tasks, :day_tasks] }})
+    hash = super(except: except, include: { sprint_projects: {include: {project: {except: :tasks}, 
+                                                                       sprint_project_tasks: {include: {task: {except: :project}}}}},
+                                            days: { except: [:tasks, :day_tasks]} })
     
     hash['points'] = points
     hash['finished_points'] = finished_points
