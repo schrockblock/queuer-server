@@ -1,8 +1,8 @@
 class Task < ActiveRecord::Base
 
   belongs_to :project
-  has_many :day_tasks
-  has_many :sprint_project_tasks
+  has_many :day_tasks, dependent: :destroy
+  has_many :sprint_project_tasks, dependent: :destroy
 
   after_save :update_project_points, :update_day_points, :update_sprint_project_points
 
