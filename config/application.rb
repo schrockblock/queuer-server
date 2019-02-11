@@ -35,6 +35,8 @@ module RailsApp
 
     config.eager_load = true
 
+    config.log_level = :debug
+
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
