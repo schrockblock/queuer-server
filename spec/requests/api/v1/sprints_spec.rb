@@ -25,6 +25,7 @@ describe 'Sprint requests' do
 
       expect(response).to have_http_status :ok
       expect(json.count).to eq 1
+      expect(json.first['days']).to be_nil
     end
 
     it 'orders by start_date' do

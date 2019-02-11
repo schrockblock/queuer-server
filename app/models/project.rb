@@ -5,10 +5,10 @@ class Project < ActiveRecord::Base
   belongs_to :user
 
   def as_json(options={})
-    included = options[:include] || {}
-    except = [:user, :user_id].delete_if { |attr| included.include?(attr) }
+    included = options[:include] || { tasks: {except: :project} }
+    except = [:user, :user_id, :tasks].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: {tasks: {except: :project}})
+    hash = super(except: except, include: included)
     hash['points'] = points
     hash['remaining_points'] = remaining_points
     hash['errors'] = errors.as_json if errors.present?

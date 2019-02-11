@@ -6,7 +6,7 @@ class Api::V1::SprintsController < Api::V1::ApiController
   def index
     sprints = paginate current_user.sprints.order(start_date: :desc), per_page: 8
 
-    render json: sprints.as_json
+    render json: sprints.as_json({ include: {} })
   end
 
   private

@@ -5,13 +5,12 @@ class Sprint < ActiveRecord::Base
   has_many :projects, through: :sprint_projects
 
   def as_json(options={})
-    included = options[:include] || {}
-    excepted = options[:except] || {}
-    except = [:user, :user_id, :projects, :days].delete_if { |attr| included.include?(attr) }
+    included = options[:include] || { sprint_projects: {include: {project: {except: :tasks}, 
+                                                                  sprint_project_tasks: {include: {task: {except: :project}}}}},
+                                      days: { except: [:tasks, :day_tasks]} }
+    excepted = options[:except] || [:user, :user_id, :sprint_projects, :projects, :days].delete_if { |attr| included.include?(attr) }
 
-    hash = super(except: except, include: { sprint_projects: {include: {project: {except: :tasks}, 
-                                                                       sprint_project_tasks: {include: {task: {except: :project}}}}},
-                                            days: { except: [:tasks, :day_tasks]} })
+    hash = super(except: excepted, include: included)
     
     hash['points'] = points
     hash['finished_points'] = finished_points

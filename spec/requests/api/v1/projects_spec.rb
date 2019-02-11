@@ -34,6 +34,7 @@ describe 'Project requests' do
 
       expect(response).to have_http_status :ok
       expect(json.count).to eq 2
+      expect(json.first['tasks']).to be_nil
     end
 
     it 'is unauthorized when no user' do
@@ -41,6 +42,39 @@ describe 'Project requests' do
       project = create :project, user: user
 
       get(api_v1_projects_url, {}, accept_headers)
+
+      expect(response).to have_http_status :unauthorized
+    end
+  end
+
+  describe 'GET /api/v1/projects/:id' do
+    it 'gets the project for the user' do
+      user = create :user
+      project = create :project, user: user
+      task = create :task, project: project
+
+      get(api_v1_project_url(project), {}, authorization_headers(user))
+
+      expect(response).to have_http_status :ok
+      expect(json['tasks'].count).to eq 1
+      expect(json['points']).to eq 1
+    end
+
+    it 'is unauthorized when no user' do
+      user = create :user
+      project = create :project, user: user
+
+      get(api_v1_project_url(project), {}, accept_headers)
+
+      expect(response).to have_http_status :unauthorized
+    end
+
+    it 'is unauthorized when other user' do
+      other_user = create :user, username: 'other'
+      user = create :user
+      project = create :project, user: user
+
+      get(api_v1_project_url(project), {}, authorization_headers(other_user))
 
       expect(response).to have_http_status :unauthorized
     end
