@@ -4,6 +4,7 @@ class SprintProject < ActiveRecord::Base
   has_many :sprint_project_tasks, dependent: :destroy
   has_many :tasks, through: :sprint_project_tasks
 
+  validates_presence_of :sprint_id
   validates :project_id, uniqueness: { scope: :sprint_id }
 
   def as_json(options={})

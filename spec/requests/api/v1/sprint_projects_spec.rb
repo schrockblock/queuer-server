@@ -11,6 +11,9 @@ describe 'Sprint Project requests' do
            authorization_headers(user))
 
       expect(response).to have_http_status :created
+
+      sprint_project = SprintProject.find(json['id'])
+      expect(sprint_project.sprint_id).not_to be_nil
     end
   end
 
@@ -19,11 +22,23 @@ describe 'Sprint Project requests' do
       user = create :user
       project = create :project, user: user
       sprint = create :sprint, user: user
-      create :sprint_project, sprint: sprint, project: project
+      task = create :task, project: project
+      sprint = create :sprint, user: user
+      sp = create :sprint_project, sprint: sprint, project: project
+      spt = create :sprint_project_task, sprint_project: sp, task: task
+
+      other_user = create :user, username: 'other'
+      other_project = create :project, user: other_user
+      other_sprint = create :sprint, user: other_user
+      create :sprint_project, sprint: other_sprint, project: other_project
 
       get(api_v1_sprint_sprint_projects_url(sprint), {}, authorization_headers(user))
 
       expect(response).to have_http_status :ok
+      expect(json.count).to eq 1
+      expect(json.first['project']['tasks']).to be_nil
+      expect(json.first['sprint_project_tasks'].first['task']).not_to be_nil
+      expect(json.first['sprint_project_tasks'].first['task']['project']).to be_nil
     end
   end
 
